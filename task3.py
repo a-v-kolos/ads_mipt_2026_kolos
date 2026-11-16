@@ -1,3 +1,15 @@
+# q1 — число вставок (append)
+# q2 — число поисков (find)
+# q3 — число вызовов print_tree
+# q4 — число вызовов height
+# n — текущее число узлов в дереве
+
+
+# сложность по времени: O((q1 + q2)·log n + (q3 + q4)·n)
+# сложность по памяти: O(q1 · log n) - вставки (append)
+
+
+
 class Node:
     def __init__(self, value,  left=None, right=None, color='red'):
         self.value = value
