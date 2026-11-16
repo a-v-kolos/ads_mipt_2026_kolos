@@ -149,7 +149,7 @@ class Tree:
 
                     parent.color = 'black' #перекрашиваем отца
                     grandparent.color = 'red' #перекрашиваем деда
-                    self.rotation(grandparent, 'left') #левы1й поворот вокруг деда
+                    self.rotation(grandparent, 'left') #левый поворот вокруг деда
 
         self.root.color = 'black'
 
@@ -161,9 +161,9 @@ class Tree:
             return
         self.print_tree(node.right, indent + 1) #правое наверху, каждый слой indent+1, таким образом отделяем слои
         print("      " * indent + str(node.value) + node.color[0]) #пишем узел и цвет
-        self.print_tree(node.left, indent + 1) #левое поддерево внизу
+        self.print_tree(node.left, indent + 1) # левое поддерево внизу
 
-    def find(self, value):    #по идее за log(n), потому что каждый раз отсекаем половину
+    def find(self, value):    # log(n), потому что каждый раз отсекаем половину
         node = self.root #начинаем поиск с корня
         while node is not self.NIL: #пока не дошли до листьев
             if value == node.value:
