@@ -6,6 +6,24 @@
 # память: O(V) + O(V) + O(V) + O(E) (хранение self.edges) = O(V + E)
 
 
+# СЛОЖНОСТЬ ПО ВРЕМЕНИ:
+#   O(1)            — add_edge (append в список рёбер)
+#   O(V*E)          — bellman_ford (V-1 итерация × E рёбер + O(E) проверка отрицательного цикла;
+#                     ранний выход if not upd может дать O(E) в лучшем случае)
+#   O(V*E)          — neg_cycle_nums (bellman_ford + поиск ребра-нарушителя O(E)
+#                     + прокрутка parent на V шагов + обход цикла O(V))
+#   O(V)            — way (проход по parent от target до point, длина ≤ V)
+#   ИТОГО: O(V*E) доминирует; при q вызовах — O(q * V*E)
+#
+# СЛОЖНОСТЬ ПО ПАМЯТИ:
+#   O(V + E)        — хранение графа (size + edges)
+#   O(V)            — dist, parent в bellman_ford
+#   O(V)            — cycle в neg_cycle_nums (длина цикла ≤ V)
+#   O(V)            — way (путь длины ≤ V)
+#   ИТОГО: O(V + E) — структура графа доминирует над рабочими массивами O(V)
+
+
+
 
 class Graph:
     def __init__(self, size):
